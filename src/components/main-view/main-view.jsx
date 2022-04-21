@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import  MovieView  from '../movie-view/movie-view';
 import  MovieCard  from '../movie-card/movie-card';
 
@@ -6,13 +7,20 @@ class MainView extends React.Component {
     constructor(){
         super();
         this.state = {
-          movies: [
-            { _id: 1, Title: 'Inception', Description: 'Dont mind the picture just practice', ImagePath: 'https://m.media-amazon.com/images/M/MV5BODAzNDMxMzAxOV5BMl5BanBnXkFtZTgwMDMxMjA4MjE@._V1_UY209_CR0,0,140,209_AL_.jpg'},
-            { _id: 2, Title: 'The Shawshank Redemption', Description: 'Dont mind the picture just practice', ImagePath: 'https://m.media-amazon.com/images/M/MV5BODAzNDMxMzAxOV5BMl5BanBnXkFtZTgwMDMxMjA4MjE@._V1_UY209_CR0,0,140,209_AL_.jpg'},
-            { _id: 3, Title: 'Gladiator', Description: 'Dont mind the picture just practice', ImagePath: 'https://m.media-amazon.com/images/M/MV5BODAzNDMxMzAxOV5BMl5BanBnXkFtZTgwMDMxMjA4MjE@._V1_UY209_CR0,0,140,209_AL_.jpg'}
-          ],
+          movies: [],
           selectedMovie: null
         };
+      }
+      componentDidMount(){
+        axios.get('https://manymovies.herokuapp.com/movies')
+          .then(response => {
+            this.setState({
+              movies: response.data
+            });
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }
       setSelectedMovie(newSelectedMovie) {
         this.setState({
