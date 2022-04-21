@@ -2,6 +2,22 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-size: 20px;
+}
+
+form {
+  margin: 10%;
+}
+
+label {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .my-flix {

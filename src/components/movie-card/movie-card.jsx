@@ -5,6 +5,7 @@ class MovieCard extends React.Component {
     
     render() {
         const { movie, onMovieClick } = this.props;
+        <button onClick={() => { onBackClick(null); }}>Back</button>
         return <div className="movie-card" onClick={() => { onMovieClick(movie); }}>{movie.Title}</div>;
     }
 }
