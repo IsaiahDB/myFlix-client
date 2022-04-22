@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import "./login-view.scss";
-//new added
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
