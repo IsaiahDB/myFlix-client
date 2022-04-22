@@ -5,12 +5,15 @@ export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
+  const x = RegisterUser.onRegisterPerson
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
     props.onLoggedIn(username)
    
   };
+
 
   return (
     <form>

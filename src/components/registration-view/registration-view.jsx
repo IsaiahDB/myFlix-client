@@ -8,6 +8,7 @@ export function RegisterUser(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(username, password, email);
+        props.onRegisterPerson(username)
       };
 
       return (
