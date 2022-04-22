@@ -31741,6 +31741,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.LoginView = LoginView;
+exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -31773,8 +31774,6 @@ function LoginView(props) {
       password = _useState4[0],
       setPassword = _useState4[1];
 
-  var x = RegisterUser.onRegisterPerson;
-
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
     console.log(username, password);
@@ -31799,17 +31798,28 @@ function LoginView(props) {
   }, "Submit"), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
     onClick: handleSubmit
-  }, "New User Register"));
+  }, "Register New User"));
 }
-},{"react":"../node_modules/react/index.js","./login-view.scss":"components/login-view/login-view.scss"}],"components/registration-view/registration-view.jsx":[function(require,module,exports) {
+
+var _default = LoginView;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./login-view.scss":"components/login-view/login-view.scss"}],"components/registration-view/registration-view.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/registration-view/registration-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.RegisterUser = RegisterUser;
+exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
+
+require("./registration-view.scss");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -31843,10 +31853,10 @@ function RegisterUser(props) {
       email = _useState6[0],
       setEmail = _useState6[1];
 
-  var handleSubmit = function handleSubmit(e) {
+  var registerSubmit = function registerSubmit(e) {
     e.preventDefault();
     console.log(username, password, email);
-    props.onRegisterPerson(username);
+    props.onRegister(username);
   };
 
   return /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("label", null, "Username:", /*#__PURE__*/_react.default.createElement("input", {
@@ -31869,10 +31879,13 @@ function RegisterUser(props) {
     }
   })), /*#__PURE__*/_react.default.createElement("button", {
     type: "submit",
-    onClick: handleSubmit
+    onClick: registerSubmit
   }, "Submit"));
 }
-},{"react":"../node_modules/react/index.js"}],"components/movie-view/movie-view.jsx":[function(require,module,exports) {
+
+var _default = RegisterUser;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./registration-view.scss":"components/registration-view/registration-view.scss"}],"components/movie-view/movie-view.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33041,9 +33054,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
-var _loginView = require("../login-view/login-view");
+var _loginView = _interopRequireDefault(require("../login-view/login-view"));
 
-var _registrationView = require("../registration-view/registration-view");
+var _registrationView = _interopRequireDefault(require("../registration-view/registration-view"));
 
 var _movieView = _interopRequireDefault(require("../movie-view/movie-view"));
 
@@ -33119,6 +33132,13 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "onRegister",
+    value: function onRegister(reg) {
+      this.setState({
+        reg: reg
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this3 = this;
@@ -33127,8 +33147,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
           movies = _this$state.movies,
           selectedMovie = _this$state.selectedMovie,
           user = _this$state.user,
-          register = _this$state.register;
-      if (!user) return /*#__PURE__*/_react.default.createElement(_loginView.LoginView, {
+          reg = _this$state.reg;
+      if (!user) return /*#__PURE__*/_react.default.createElement(_loginView.default, {
         onLoggedIn: function onLoggedIn(user) {
           return _this3.onLoggedIn(user);
         }
@@ -33254,7 +33274,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64191" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61831" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

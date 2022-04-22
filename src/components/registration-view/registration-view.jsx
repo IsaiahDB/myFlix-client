@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
+import "./registration-view.scss"
+
 export function RegisterUser(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ email, setEmail ] = useState('');
 
-    const handleSubmit = (e) => {
+
+    const registerSubmit = (e) => {
         e.preventDefault();
         console.log(username, password, email);
+        props.onRegister(username)
       };
 
       return (
@@ -24,8 +28,9 @@ export function RegisterUser(props) {
             Email:
             <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
           </label>
-          <button type="submit" onClick={handleSubmit}>Submit</button>
+          <button type="submit" onClick={registerSubmit}>Submit</button>
         </form>
       );
 }
 
+export default RegisterUser;

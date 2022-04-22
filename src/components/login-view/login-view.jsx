@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import "./login-view.scss"
+
+import "./login-view.scss";
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const x = RegisterUser.onRegisterPerson
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
     props.onLoggedIn(username)
-   
   };
 
 
@@ -26,7 +25,9 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>Submit</button>
-      <button type="submit" onClick={handleSubmit}>New User Register</button>
+      <button type="submit" onClick={handleSubmit}>Register New User</button>
     </form>
   );
 }
+
+export default LoginView;
