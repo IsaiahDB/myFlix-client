@@ -10,7 +10,6 @@ import { CardGroup } from "react-bootstrap";
 
 import "./genre-view.scss";
 
-import { Link } from "react-router-dom"
 
 class GenreView extends React.Component {
 
