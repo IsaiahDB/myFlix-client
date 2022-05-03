@@ -4,6 +4,19 @@
   box-sizing: border-box;
   font-size: 20px;
 }
+.movie-director {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#movie-director-id {
+  color: white;
+}
+
+#movie-genre-id {
+  color: white;
+}
 * {
   margin: 0px;
   padding: 0px;

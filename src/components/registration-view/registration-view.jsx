@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 import "./registration-view.scss"
 
@@ -56,6 +58,9 @@ export function RegisterUser(props) {
                       <Form.Label>Birthday:</Form.Label>
                       <Form.Control type="number" onChange={e => setBirthday(e.target.value)} />
                     </Form.Group>
+                    <Link to={`/`}>
+                      <Button style={{margin: '7px'}} variant="primary">Back</Button>
+                    </Link>
                     <Button variant="primary" type="submit" onClick={registerSubmit}>Submit</Button>
                   </Form>
                 </Col>

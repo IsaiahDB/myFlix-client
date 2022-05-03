@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+
 
 
 import "./login-view.scss";
@@ -14,9 +16,9 @@ export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     axios.post('https://manymovies.herokuapp.com/login', {
       Username: username,
       Password: password
@@ -50,7 +52,10 @@ export function LoginView(props) {
                 </Form.Group>
 
                 <Button style={{margin: '7px 2px 0px 0px'}} variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-                <Button style={{marginTop: '7px'}} variant="primary" type="submit" onClick={handleSubmit}>Register New Users</Button>
+                <Link to={`/register`}>
+                  <Button style={{marginTop: '7px'}} variant="primary" type="submit">Register New Users</Button>
+                </Link>
+                
               </Form>
             </Col>
           </Card.Body>

@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 
-
+import "./movie-view.scss"
 
 class MovieView extends React.Component {
 
@@ -15,17 +15,19 @@ class MovieView extends React.Component {
 
     return (
       <Card style={{margin: '20px 0px 10px 0px'}} bg={"primary"}>
-        <Card.Img variant="top"  src={movie.ImagePath} crossOrigin="true"  style={{width: '50px', height: '50px'}}/>
-        <Card.Body>
+        <Card.Img variant="top" src={movie.ImagePath} style={{width: "max-width", height: "150px"}} />
+        <Card.Body style={{width: "max-width"}}>
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Description}</Card.Text>
+        <div className='movie-director'>
+          <Link to={`/directors/${movie.Director}`}>
+            <Button id="movie-director-id" variant="link">Director: {movie.Director}</Button>  
+          </Link>
+          <Link to={`/genres/${movie.Genre}`}>
+            <Button id="movie-genre-id" variant="link">Genre: {movie.Genre}</Button>
+          </Link>
+        </div>
         <Button onClick={() => { onBackClick(null); }}>Back</Button>
-        <Link to={`/directors/${movie.Directors.Name}`}>
-          <Button variant="link">Director: {movie.Director.Name}</Button>  
-        </Link>
-        <Link to={`/genres/${movie.Genre.Name}`}>
-          <Button variant="link">Genre: {movie.Genre.Name}</Button>
-        </Link>
         </Card.Body>
       </Card>
     );

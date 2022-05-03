@@ -11,7 +11,7 @@ class MovieCard extends React.Component {
          const { movie } = this.props;
          return (
             <Card style={{margin: '20px 0px 10px 0px'}}>
-                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" style={{width: '50px', height: '50px'}} />
+                <Card.Img variant="top" src={movie.ImagePath} style={{width: 'max-width', height: '150px'}} />
                 <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>
                 <Card.Text>{movie.Description}</Card.Text>
