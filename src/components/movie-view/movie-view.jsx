@@ -9,6 +9,8 @@ import "./movie-view.scss"
 
 class MovieView extends React.Component {
 
+
+  
   
   render() {
     const { movie, onBackClick } = this.props;
@@ -20,11 +22,11 @@ class MovieView extends React.Component {
         <Card.Title>{movie.Title}</Card.Title>
         <Card.Text>{movie.Description}</Card.Text>
         <div className='movie-director'>
-          <Link to={`/directors/${movie.Director}`}>
-            <Button id="movie-director-id" variant="link">Director: {movie.Director}</Button>  
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <Button id="movie-director-id" variant="link">Director: {movie.Director.Name}</Button>  
           </Link>
-          <Link to={`/genres/${movie.Genre}`}>
-            <Button id="movie-genre-id" variant="link">Genre: {movie.Genre}</Button>
+          <Link to={`/genres/${movie.Genre.Name}`}>
+            <Button id="movie-genre-id" variant="link">Genre: {movie.Genre.Name}</Button>
           </Link>
         </div>
         <Button onClick={() => { onBackClick(null); }}>Back</Button>
@@ -39,12 +41,14 @@ MovieView.propTypes = {
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
-    Genre: PropTypes.string.isRequired,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired
+    }).isRequired,
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired
     }).isRequired,
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  }).isRequired
 };
 
 export default MovieView;
