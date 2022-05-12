@@ -236,19 +236,6 @@ class ProfileView extends React.Component {
                             <Card.Body>
                                     {this.state.Favs.map((movie) => 
                                    
-                                        // <Card className="favorite-movie" key={movie._id} >
-                                        //     <Card.Img
-                                        //         className="favorite-movie-image"
-                                        //         variant="top"
-                                        //         src={movie.ImagePath}
-                                        //     />
-                                        //     <Card.Body>
-                                        //         <Card.Title className="movie-title">
-                                        //             {movie.Title}
-                                        //         </Card.Title>
-                                        //         <Button value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from List</Button>
-                                        //     </Card.Body>
-                                        // </Card>
                                         <Card className="favorite-movie" key={movie._id} >
                                         <Card.Title key={movie._id}>
                                             {movie.Title}
