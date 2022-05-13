@@ -16,9 +16,36 @@ export function RegisterUser(props) {
     const [ email, setEmail ] = useState('');
     const [ birthday, setBirthday ] = useState('');
 
+    const validate = () => {
+      let isReq = true;
+      if (!username) {
+          setUsernameErr('Username Required');
+          isReq = false;
+      } else if (username.length < 2) {
+          setUsernameErr('Username must be at least 2 characters long');
+          isReq = false;
+      }
+      if (!password) {
+          setPasswordErr('Password Required');
+          isReq = false;
+      } else if (password.length < 6) {
+          setPasswordErr('Password must be at least 6 characters long');
+          isReq = false;
+      }
+      if (!email) {
+          setEmailErr('Please enter a email address');
+          isReq = false;
+      } else if (email.indexOf('@') === -1) {
+          setEmailErr('Please enter a valid email address');
+      }
+      return isReq;
+  }
+
 
     const registerSubmit = (e) => {
         e.preventDefault();
+        const isReq = validate();
+        if (isReq) {
         axios.post('https://manymovies.herokuapp.com/users', {
           Username: username,
           Password: password,
@@ -33,6 +60,7 @@ export function RegisterUser(props) {
         .catch(e => {
           console.log('error registering the user')
         });
+      }
       };
 
       return (
