@@ -16,6 +16,10 @@ export function RegisterUser(props) {
     const [ email, setEmail ] = useState('');
     const [ birthday, setBirthday ] = useState('');
 
+    const [usernameErr, setUsernameErr] = useState('');
+    const [passwordErr, setPasswordErr] = useState('');
+    const [emailErr, setEmailErr] = useState('');
+
     const validate = () => {
       let isReq = true;
       if (!username) {
