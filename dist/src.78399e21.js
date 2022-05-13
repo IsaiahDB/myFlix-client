@@ -39017,24 +39017,27 @@ function RegisterUser(props) {
     controlId: "formUsername"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Username:"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     type: "text",
+    value: username,
     onChange: function onChange(e) {
       return setUsername(e.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  }), usernameErr && /*#__PURE__*/_react.default.createElement("p", null, usernameErr)), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     controlId: "formPassword"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password:"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     type: "password",
+    value: password,
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  }), passwordErr && /*#__PURE__*/_react.default.createElement("p", null, passwordErr)), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     controlId: "formEmail"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Email:"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     type: "email",
+    value: email,
     onChange: function onChange(e) {
       return setEmail(e.target.value);
     }
-  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  }), emailErr && /*#__PURE__*/_react.default.createElement("p", null, emailErr)), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     controlId: "formEmail"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Birthday:"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     type: "number",
@@ -43923,7 +43926,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56264" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56962" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
