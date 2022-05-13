@@ -39304,32 +39304,16 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
           return _this4.onDeleteUser();
         }
       }, "Delete Profile"))))), /*#__PURE__*/_react.default.createElement(_Row.default, null, /*#__PURE__*/_react.default.createElement(_Col.default, null, /*#__PURE__*/_react.default.createElement(_Card.default, null, /*#__PURE__*/_react.default.createElement(_Card.default.Body, null, this.state.Favs.map(function (movie) {
-        return (
-          /*#__PURE__*/
-          // <Card className="favorite-movie" key={movie._id} >
-          //     <Card.Img
-          //         className="favorite-movie-image"
-          //         variant="top"
-          //         src={movie.ImagePath}
-          //     />
-          //     <Card.Body>
-          //         <Card.Title className="movie-title">
-          //             {movie.Title}
-          //         </Card.Title>
-          //         <Button value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from List</Button>
-          //     </Card.Body>
-          // </Card>
-          _react.default.createElement(_Card.default, {
-            className: "favorite-movie",
-            key: movie._id
-          }, /*#__PURE__*/_react.default.createElement(_Card.default.Title, {
-            key: movie._id
-          }, movie.Title), /*#__PURE__*/_react.default.createElement(_Card.default.Img, {
-            className: "favorite-movie-image",
-            variant: "top",
-            src: movie.ImagePath
-          }))
-        );
+        return /*#__PURE__*/_react.default.createElement(_Card.default, {
+          className: "favorite-movie",
+          key: movie._id
+        }, /*#__PURE__*/_react.default.createElement(_Card.default.Title, {
+          key: movie._id
+        }, movie.Title), /*#__PURE__*/_react.default.createElement(_Card.default.Img, {
+          className: "favorite-movie-image",
+          variant: "top",
+          src: movie.ImagePath
+        }));
       }), ";")))));
     }
   }]);
@@ -43892,7 +43876,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57500" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53919" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
