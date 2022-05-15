@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { connect } from 'react-redux';
+
+import { setMovies, setUser, setUserData, getToken } from "../../actions/actions";
+
+import MoviesList from "../movie-list/movie-list";
 
 import  LoginView from '../login-view/login-view';
 import  RegisterUser from '../registration-view/registration-view';
 import  ProfileView  from '../profile-view/profile-view';
 import  MovieView  from '../movie-view/movie-view';
-import  MovieCard  from '../movie-card/movie-card';
 import GenreView from '../genre-view/genres-view';
 import DirectorView from '../directors-view/directors-view';
 import Container from 'react-bootstrap/Container';
@@ -15,6 +19,8 @@ import Col from 'react-bootstrap/Col';
 import Navbar  from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+
+
 
 class MainView extends React.Component {
     constructor(){
@@ -98,11 +104,7 @@ class MainView extends React.Component {
                  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                </Col>
                 if (movies.length === 0) return <div className="main-view" />;
-                return movies.map(m => (
-                  <Col md={3} key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ))
+                return <MoviesList movies={movies} />
               }} />
 
 
@@ -156,4 +158,10 @@ class MainView extends React.Component {
     }
 }
 
-export default MainView;
+let mapStateToProps = (state) => {
+  return { movies: state.movies, user: state.user, userData: state.userData };
+};
+
+export default connect(mapStateToProps, { setMovies, setUser, setUserData, getToken })(
+  MainView
+);
